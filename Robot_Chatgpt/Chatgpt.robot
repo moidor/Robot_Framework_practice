@@ -1,15 +1,18 @@
 *** Settings ***
 Library    RPA.OpenAI
 Library    String
+Library    OperatingSystem
 Resource    Image_chatgpt.robot
+Resource    api_key.robot
 
 *** Variables ***
-${mon_api_key}    
+# La variable "my_personal_api_key" provient d'un fichier importé via le mot-clé Resource car elle contient la donnée sensible
+${local_variable_api_key}    ${my_personal_api_key}
 
 *** Tasks ***
 Create a text completion
     [Documentation]    Call OpenAI Chat Completion API to generate a response in French.
-    Authorize To OpenAI    api_key=${mon_api_key}
+    Authorize To OpenAI    api_key=${local_variable_api_key}
     # Get response without conversation history.
     ${response}   @{chatgpt_conversation}=     Chat Completion Create
     ...    temperature=0.6
