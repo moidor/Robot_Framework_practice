@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.5 on win32)" generated="20230618 17:29:20.029" rpa="true" schemaversion="3">
+<suite id="s1" name="Chatgpt" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Chatgpt\Chatgpt.robot">
+<test id="s1-t1" name="Create a text completion" line="10">
+<kw name="Authorize To Openai" library="RPA.OpenAI">
+<arg>api_key=${mon_api_key}</arg>
+<doc>Keyword for authorize to OpenAI with your API key obtained from your account.</doc>
+<status status="PASS" starttime="20230618 17:29:20.458" endtime="20230618 17:29:20.459"/>
+</kw>
+<kw name="Chat Completion Create" library="RPA.OpenAI">
+<var>${response}</var>
+<var>@{chatgpt_conversation}</var>
+<arg>temperature=0.6</arg>
+<arg>user_content=Tell me about the Molokini crater in Hawaii please !</arg>
+<doc>Keyword for creating ChatGPT text completions using OpenAI or Azure OpenAI.
+Keyword returns the response as a string and the message history as a list.</doc>
+<msg timestamp="20230618 17:29:35.316" level="INFO">{
+  "id": "chatcmpl-7Sod6qDh6QirAmWY3tRWNO0XB3BrR",
+  "object": "chat.completion",
+  "created": 1687102160,
+  "model": "gpt-3.5-turbo-0301",
+  "usage": {
+    "prompt_tokens": 20,
+    "completion_tokens": 261,
+    "total_tokens": 281
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marine life. The crater is home to over 250 species of fish, many of which are endemic to Hawaii, as well as sea turtles, manta rays, and various types of coral.\n\nThe crater was formed around 230,000 years ago when a volcanic eruption caused the top of the volcano to collapse and sink into the ocean. Over time, the crater filled with water and became a unique ecosystem. The crescent shape of the crater helps protect the marine life from strong ocean currents, making it an ideal spot for snorkeling and diving.\n\nIn addition to its natural beauty, Molokini also has a rich history. It was used as a bombing target by the United States military during World War II, and remnants of the bombing can still be seen on the ocean floor. Today, the crater is a protected marine sanctuary and is managed by the Hawaii Department of Land and Natural Resources.\n\nOverall, Molokini is a must-visit destination for anyone interested in snorkeling or scuba diving in Hawaii. Its clear waters and abundant marine life make it a truly unique and unforgettable experience."
+      },
+      "finish_reason": "stop",
+      "index": 0
+    }
+  ]
+}</msg>
+<msg timestamp="20230618 17:29:35.321" level="INFO">['Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marine life. The crater is home to over 250 species of fish, many of which are endemic to Hawaii, as well as sea turtles, manta rays, and various types of coral.\n\nThe crater was formed around 230,000 years ago when a volcanic eruption caused the top of the volcano to collapse and sink into the ocean. Over time, the crater filled with water and became a unique ecosystem. The crescent shape of the crater helps protect the marine life from strong ocean currents, making it an ideal spot for snorkeling and diving.\n\nIn addition to its natural beauty, Molokini also has a rich history. It was used as a bombing target by the United States military during World War II, and remnants of the bombing can still be seen on the ocean floor. Today, the crater is a protected marine sanctuary and is managed by the Hawaii Department of Land and Natural Resources.\n\nOverall, Molokini is a must-visit destination for anyone interested in snorkeling or scuba diving in Hawaii. Its clear waters and abundant marine life make it a truly unique and unforgettable experience.', [{'role': 'user', 'content': 'Tell me about the Molokini crater in Hawaii please !'}, {'role': 'assistant', 'content': 'Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marine life. The crater is home to over 250 species of fish, many of which are endemic to Hawaii, as well as sea turtles, manta rays, and various types of coral.\n\nThe crater was formed around 230,000 years ago when a volcanic eruption caused the top of the volcano to collapse and sink into the ocean. Over time, the crater filled with water and became a unique ecosystem. The crescent shape of the crater helps protect the marine life from strong ocean currents, making it an ideal spot for snorkeling and diving.\n\nIn addition to its natural beauty, Molokini also has a rich history. It was used as a bombing target by the United States military during World War II, and remnants of the bombing can still be seen on the ocean floor. Today, the crater is a protected marine sanctuary and is managed by the Hawaii Department of Land and Natural Resources.\n\nOverall, Molokini is a must-visit destination for anyone interested in snorkeling or scuba diving in Hawaii. Its clear waters and abundant marine life make it a truly unique and unforgettable experience.'}]]</msg>
+<msg timestamp="20230618 17:29:35.322" level="INFO">${response} = Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marin...</msg>
+<msg timestamp="20230618 17:29:35.322" level="INFO">@{chatgpt_conversation} = [ [{'role': 'user', 'content': 'Tell me about the Molokini crater in Hawaii please !'}, {'role': 'assistant', 'content': 'Molokini is a crescent-shaped, partially submerged volcanic crater located off...</msg>
+<status status="PASS" starttime="20230618 17:29:20.459" endtime="20230618 17:29:35.322"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230618 17:29:35.324" level="INFO">Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marine life. The crater is home to over 250 species of fish, many of which are endemic to Hawaii, as well as sea turtles, manta rays, and various types of coral.
+
+The crater was formed around 230,000 years ago when a volcanic eruption caused the top of the volcano to collapse and sink into the ocean. Over time, the crater filled with water and became a unique ecosystem. The crescent shape of the crater helps protect the marine life from strong ocean currents, making it an ideal spot for snorkeling and diving.
+
+In addition to its natural beauty, Molokini also has a rich history. It was used as a bombing target by the United States military during World War II, and remnants of the bombing can still be seen on the ocean floor. Today, the crater is a protected marine sanctuary and is managed by the Hawaii Department of Land and Natural Resources.
+
+Overall, Molokini is a must-visit destination for anyone interested in snorkeling or scuba diving in Hawaii. Its clear waters and abundant marine life make it a truly unique and unforgettable experience.</msg>
+<status status="PASS" starttime="20230618 17:29:35.323" endtime="20230618 17:29:35.324"/>
+</kw>
+<kw name="Ask another question related to the previous conversation">
+<arg>${chatgpt_conversation}</arg>
+<arg>Résume-moi le sujet abordé</arg>
+<kw name="Chat Completion Create" library="RPA.OpenAI">
+<var>${response}</var>
+<var>@{conversation}</var>
+<arg>conversation=${conversation}</arg>
+<arg>user_content=${new_question}</arg>
+<doc>Keyword for creating ChatGPT text completions using OpenAI or Azure OpenAI.
+Keyword returns the response as a string and the message history as a list.</doc>
+<msg timestamp="20230618 17:29:43.312" level="INFO">{
+  "id": "chatcmpl-7SodLz6R88YuwBvZAoHiUlem52SJ3",
+  "object": "chat.completion",
+  "created": 1687102175,
+  "model": "gpt-3.5-turbo-0301",
+  "usage": {
+    "prompt_tokens": 300,
+    "completion_tokens": 127,
+    "total_tokens": 427
+  },
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Le sujet abord\u00e9 est le crat\u00e8re Molokini \u00e0 Hawa\u00ef, qui est une destination populaire pour la plong\u00e9e avec tuba et la plong\u00e9e sous-marine en raison de sa vie marine diverse et de ses eaux claires. Le crat\u00e8re est de forme en croissant et est le r\u00e9sultat d'une \u00e9ruption volcanique il y a environ 230 000 ans. Il est \u00e9galement prot\u00e9g\u00e9 en tant que sanctuaire marin et poss\u00e8de une riche histoire, ayant \u00e9t\u00e9 utilis\u00e9 comme cible de bombardement pendant la Seconde Guerre mondiale."
+      },
+      "finish_reason": "stop",
+      "index": 0
+    }
+  ]
+}</msg>
+<msg timestamp="20230618 17:29:43.312" level="INFO">["Le sujet abordé est le cratère Molokini à Hawaï, qui est une destination populaire pour la plongée avec tuba et la plongée sous-marine en raison de sa vie marine diverse et de ses eaux claires. Le cratère est de forme en croissant et est le résultat d'une éruption volcanique il y a environ 230 000 ans. Il est également protégé en tant que sanctuaire marin et possède une riche histoire, ayant été utilisé comme cible de bombardement pendant la Seconde Guerre mondiale.", [{'role': 'user', 'content': 'Tell me about the Molokini crater in Hawaii please !'}, {'role': 'assistant', 'content': 'Molokini is a crescent-shaped, partially submerged volcanic crater located off the coast of Maui, Hawaii. It is a popular spot for snorkeling and scuba diving due to its clear waters and diverse marine life. The crater is home to over 250 species of fish, many of which are endemic to Hawaii, as well as sea turtles, manta rays, and various types of coral.\n\nThe crater was formed around 230,000 years ago when a volcanic eruption caused the top of the volcano to collapse and sink into the ocean. Over time, the crater filled with water and became a unique ecosystem. The crescent shape of the crater helps protect the marine life from strong ocean currents, making it an ideal spot for snorkeling and diving.\n\nIn addition to its natural beauty, Molokini also has a rich history. It was used as a bombing target by the United States military during World War II, and remnants of the bombing can still be seen on the ocean floor. Today, the crater is a protected marine sanctuary and is managed by the Hawaii Department of Land and Natural Resources.\n\nOverall, Molokini is a must-visit destination for anyone interested in snorkeling or scuba diving in Hawaii. Its clear waters and abundant marine life make it a truly unique and unforgettable experience.'}, {'role': 'user', 'content': 'Résume-moi le sujet abordé'}, {'role': 'assistant', 'content': "Le sujet abordé est le cratère Molokini à Hawaï, qui est une destination populaire pour la plongée avec tuba et la plongée sous-marine en raison de sa vie marine diverse et de ses eaux claires. Le cratère est de forme en croissant et est le résultat d'une éruption volcanique il y a environ 230 000 ans. Il est également protégé en tant que sanctuaire marin et possède une riche histoire, ayant été utilisé comme cible de bombardement pendant la Seconde Guerre mondiale."}]]</msg>
+<msg timestamp="20230618 17:29:43.313" level="INFO">${response} = Le sujet abordé est le cratère Molokini à Hawaï, qui est une destination populaire pour la plongée avec tuba et la plongée sous-marine en raison de sa vie marine diverse et de ses eaux claires. Le cra...</msg>
+<msg timestamp="20230618 17:29:43.313" level="INFO">@{conversation} = [ [{'role': 'user', 'content': 'Tell me about the Molokini crater in Hawaii please !'}, {'role': 'assistant', 'content': 'Molokini is a crescent-shaped, partially submerged volcanic crater located off...</msg>
+<status status="PASS" starttime="20230618 17:29:35.326" endtime="20230618 17:29:43.313"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230618 17:29:43.314" level="INFO">Le sujet abordé est le cratère Molokini à Hawaï, qui est une destination populaire pour la plongée avec tuba et la plongée sous-marine en raison de sa vie marine diverse et de ses eaux claires. Le cratère est de forme en croissant et est le résultat d'une éruption volcanique il y a environ 230 000 ans. Il est également protégé en tant que sanctuaire marin et possède une riche histoire, ayant été utilisé comme cible de bombardement pendant la Seconde Guerre mondiale.</msg>
+<status status="PASS" starttime="20230618 17:29:43.314" endtime="20230618 17:29:43.314"/>
+</kw>
+<kw name="Should Be String" library="String">
+<var>${response_string}</var>
+<arg>${response}</arg>
+<doc>Fails if the given ``item`` is not a string.</doc>
+<msg timestamp="20230618 17:29:43.315" level="INFO">${response_string} = None</msg>
+<status status="PASS" starttime="20230618 17:29:43.314" endtime="20230618 17:29:43.315"/>
+</kw>
+<kw name="Generate an image" library="Image_chatgpt">
+<arg>${response}</arg>
+<kw name="Authorize To Openai" library="RPA.OpenAI">
+<arg>api_key=${mon_api_key}</arg>
+<doc>Keyword for authorize to OpenAI with your API key obtained from your account.</doc>
+<status status="PASS" starttime="20230618 17:29:43.316" endtime="20230618 17:29:43.316"/>
+</kw>
+<kw name="Image Create" library="RPA.OpenAI">
+<var>${images}</var>
+<arg>${image_description}</arg>
+<arg>size=512x512</arg>
+<arg>num_images=2</arg>
+<doc>Keyword for creating one or more images using OpenAI.
+Keyword returns a list of urls for the images created.</doc>
+<msg timestamp="20230618 17:29:50.679" level="INFO">{
+  "created": 1687102190,
+  "data": [
+    {
+      "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=GEMgg/NEqCKxa0lJYD4V1x0J0lRUVCdLf8nNSVtnc4c%3D"
+    },
+    {
+      "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-FiSQV7esNbT0TJkpAvAn0yo7.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Fnc%2BAVdaILhgjQqs3DGjtOWpeR5ypb16IWVH21Tx2y8%3D"
+    }
+  ]
+}</msg>
+<msg timestamp="20230618 17:29:50.680" level="INFO">{
+  "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=GEMgg/NEqCKxa0lJYD4V1x0J0lRUVCdLf8nNSVtnc4c%3D"
+}</msg>
+<msg timestamp="20230618 17:29:50.681" level="INFO">{
+  "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-FiSQV7esNbT0TJkpAvAn0yo7.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Fnc%2BAVdaILhgjQqs3DGjtOWpeR5ypb16IWVH21Tx2y8%3D"
+}</msg>
+<msg timestamp="20230618 17:29:50.681" level="INFO">${images} = ['https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A2...</msg>
+<status status="PASS" starttime="20230618 17:29:43.316" endtime="20230618 17:29:50.681"/>
+</kw>
+<for flavor="IN">
+<var>${url}</var>
+<value>@{images}</value>
+<iter>
+<var name="${url}">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230618 17:29:50.683" level="INFO">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=GEMgg/NEqCKxa0lJYD4V1x0J0lRUVCdLf8nNSVtnc4c%3D</msg>
+<status status="PASS" starttime="20230618 17:29:50.682" endtime="20230618 17:29:50.683"/>
+</kw>
+<kw name="Open pictures in browser" library="Open_pictures_in_browser">
+<arg>${url}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230618 17:29:50.684" level="INFO">Opening browser 'Chrome' to base url 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-61HPtfn6VMdBjwNf5ZtbNr6q.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=GEMgg/NEqCKxa0lJYD4V1x0J0lRUVCdLf8nNSVtnc4c%3D'.</msg>
+<status status="PASS" starttime="20230618 17:29:50.684" endtime="20230618 17:29:54.316"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230618 17:29:54.316" endtime="20230618 17:29:54.433"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<arg>CURRENT</arg>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20230618 17:29:54.458" level="INFO">Altogether 1 item.
+1: img-61HPtfn6VMdBjwNf5ZtbNr6q.png (512×512)</msg>
+<status status="PASS" starttime="20230618 17:29:54.433" endtime="20230618 17:29:54.458"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opened picture in the browser this url : ${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230618 17:29:54.458" endtime="20230618 17:29:54.466"/>
+</kw>
+<status status="PASS" starttime="20230618 17:29:50.683" endtime="20230618 17:29:54.467"/>
+</kw>
+<status status="PASS" starttime="20230618 17:29:50.682" endtime="20230618 17:29:54.467"/>
+</iter>
+<iter>
+<var name="${url}">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-FiSQV7esNbT0TJkpAvAn0yo7.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230618 17:29:54.468" level="INFO">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-FiSQV7esNbT0TJkpAvAn0yo7.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Fnc%2BAVdaILhgjQqs3DGjtOWpeR5ypb16IWVH21Tx2y8%3D</msg>
+<status status="PASS" starttime="20230618 17:29:54.467" endtime="20230618 17:29:54.468"/>
+</kw>
+<kw name="Open pictures in browser" library="Open_pictures_in_browser">
+<arg>${url}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230618 17:29:54.469" level="INFO">Opening browser 'Chrome' to base url 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-FiSQV7esNbT0TJkpAvAn0yo7.png?st=2023-06-18T14%3A29%3A50Z&amp;se=2023-06-18T16%3A29%3A50Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-06-17T20%3A54%3A23Z&amp;ske=2023-06-18T20%3A54%3A23Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Fnc%2BAVdaILhgjQqs3DGjtOWpeR5ypb16IWVH21Tx2y8%3D'.</msg>
+<status status="PASS" starttime="20230618 17:29:54.469" endtime="20230618 17:29:58.019"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230618 17:29:58.019" endtime="20230618 17:29:58.135"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<arg>CURRENT</arg>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20230618 17:29:58.156" level="INFO">Altogether 1 item.
+1: img-FiSQV7esNbT0TJkpAvAn0yo7.png (512×512)</msg>
+<status status="PASS" starttime="20230618 17:29:58.135" endtime="20230618 17:29:58.156"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opened picture in the browser this url : ${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230618 17:29:58.157" endtime="20230618 17:29:58.160"/>
+</kw>
+<status status="PASS" starttime="20230618 17:29:54.468" endtime="20230618 17:29:58.163"/>
+</kw>
+<status status="PASS" starttime="20230618 17:29:54.467" endtime="20230618 17:29:58.164"/>
+</iter>
+<status status="PASS" starttime="20230618 17:29:50.682" endtime="20230618 17:29:58.164"/>
+</for>
+<status status="PASS" starttime="20230618 17:29:43.315" endtime="20230618 17:29:58.164"/>
+</kw>
+<status status="PASS" starttime="20230618 17:29:35.325" endtime="20230618 17:29:58.164"/>
+</kw>
+<doc>Call OpenAI Chat Completion API to generate a response in French.</doc>
+<status status="PASS" starttime="20230618 17:29:20.458" endtime="20230618 17:29:58.165"/>
+</test>
+<status status="PASS" starttime="20230618 17:29:20.034" endtime="20230618 17:29:58.167"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Chatgpt">Chatgpt</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
