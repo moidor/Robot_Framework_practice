@@ -4,7 +4,7 @@ Library    String
 Resource    Image_chatgpt.robot
 
 *** Variables ***
-${mon_api_key}    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
+${mon_api_key}    
 
 *** Tasks ***
 Create a text completion
