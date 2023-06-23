@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.0 on win32)" generated="20230620 16:20:04.037" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\cham.zein\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Launch ChatGPT asking one question">
+<arg>@{chatgpt_conversation}\[]</arg>
+<arg>Tell me about the Molokini crater in Hawaii please !</arg>
+<msg timestamp="20230620 16:20:05.310" level="FAIL">No keyword with name 'Launch ChatGPT asking one question' found.</msg>
+<status status="FAIL" starttime="20230620 16:20:05.309" endtime="20230620 16:20:05.310"/>
+</kw>
+<status status="PASS" starttime="20230620 16:20:04.072" endtime="20230620 16:20:07.578"/>
+</kw>
+<status status="PASS" starttime="20230620 16:20:04.071" endtime="20230620 16:20:07.579"/>
+</test>
+<status status="PASS" starttime="20230620 16:20:04.040" endtime="20230620 16:20:07.582"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
