@@ -1,0 +1,2 @@
+first;Tell me about a Waikiki Beach-style beach in Hawaii in one line.
+second;Can you summarize it in a maximum of three words please.

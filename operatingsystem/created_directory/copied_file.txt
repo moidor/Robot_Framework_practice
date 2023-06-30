@@ -1,0 +1,4 @@
+Bonjour
+Au revoir
+Salut !
+New content in the text file !

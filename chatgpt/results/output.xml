@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.0 on win32)" generated="20230626 09:21:25.217" rpa="false" schemaversion="3">
+<suite id="s1" name="Chatgpt Test Cases" source="C:\Users\cham.zein\Documents\RF_perso\Robot_Framework_practice-main\chatgpt\chatgpt_test_cases.robot">
+<test id="s1-t1" name="Test temporaire" line="32">
+<kw name="Make sure that the API key is filled" library="api_key" type="SETUP">
+<tag>api_key</tag>
+<tag>filled_data</tag>
+<tag>string_variable</tag>
+<doc>We make sure that the API key is filled to connect to ChatGPT.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${var_api_key}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230626 09:21:26.050" level="INFO">Length is 51</msg>
+<status status="PASS" starttime="20230626 09:21:26.050" endtime="20230626 09:21:26.050"/>
+</kw>
+<kw name="Should Be String" library="String">
+<arg>${var_api_key}</arg>
+<doc>Fails if the given ``item`` is not a string.</doc>
+<status status="PASS" starttime="20230626 09:21:26.051" endtime="20230626 09:21:26.051"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>The API key is filled as a string</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230626 09:21:26.051" level="INFO">The API key is filled as a string</msg>
+<status status="PASS" starttime="20230626 09:21:26.051" endtime="20230626 09:21:26.051"/>
+</kw>
+<status status="PASS" starttime="20230626 09:21:26.050" endtime="20230626 09:21:26.051"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${my_text}</var>
+<arg>Beach with tropical water and a kayak and dolphins</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230626 09:21:26.052" level="INFO">${my_text} = Beach with tropical water and a kayak and dolphins</msg>
+<status status="PASS" starttime="20230626 09:21:26.052" endtime="20230626 09:21:26.052"/>
+</kw>
+<kw name="Generate an image" library="Image_chatgpt">
+<arg>${my_text}</arg>
+<tag>image</tag>
+<tag>image_generation</tag>
+<doc>Generation of an image based on the summarized description from the conversation</doc>
+<kw name="Authorize To Openai" library="RPA.OpenAI">
+<arg>api_key=${my_api_key}</arg>
+<doc>Keyword for authorize to OpenAI with your API key obtained from your account.</doc>
+<status status="PASS" starttime="20230626 09:21:26.053" endtime="20230626 09:21:26.053"/>
+</kw>
+<kw name="Image Create" library="RPA.OpenAI">
+<var>${images}</var>
+<arg>${image_description}</arg>
+<arg>size=512x512</arg>
+<arg>num_images=2</arg>
+<doc>Keyword for creating one or more images using OpenAI.
+Keyword returns a list of urls for the images created.</doc>
+<msg timestamp="20230626 09:21:26.364" level="INFO">error_code=invalid_api_key error_message='Incorrect API key provided: sk-oM2Jm***************************************pDP9. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False</msg>
+<msg timestamp="20230626 09:21:26.365" level="FAIL">AuthenticationError: Incorrect API key provided: sk-oM2Jm***************************************pDP9. You can find your API key at https://platform.openai.com/account/api-keys.</msg>
+<status status="FAIL" starttime="20230626 09:21:26.053" endtime="20230626 09:21:26.380"/>
+</kw>
+<for flavor="IN">
+<var>${url}</var>
+<value>@{images}</value>
+<iter>
+<var name="${url}"/>
+<kw name="Log" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230626 09:21:26.380" endtime="20230626 09:21:26.380"/>
+</kw>
+<kw name="Open pictures in browser" library="open_pictures_in_webbrowser">
+<arg>${url}</arg>
+<tag>browser</tag>
+<tag>webdriver</tag>
+<doc>Call of the browser driver so that to open the url in a maximized window</doc>
+<status status="NOT RUN" starttime="20230626 09:21:26.380" endtime="20230626 09:21:26.380"/>
+</kw>
+<status status="NOT RUN" starttime="20230626 09:21:26.380" endtime="20230626 09:21:26.380"/>
+</iter>
+<status status="NOT RUN" starttime="20230626 09:21:26.380" endtime="20230626 09:21:26.380"/>
+</for>
+<status status="FAIL" starttime="20230626 09:21:26.052" endtime="20230626 09:21:26.380"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Salut !</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230626 09:21:26.380" endtime="20230626 09:21:26.380"/>
+</kw>
+<tag>chat</tag>
+<tag>chien</tag>
+<status status="FAIL" starttime="20230626 09:21:26.049" endtime="20230626 09:21:26.389">AuthenticationError: Incorrect API key provided: sk-oM2Jm***************************************pDP9. You can find your API key at https://platform.openai.com/account/api-keys.</status>
+</test>
+<status status="FAIL" starttime="20230626 09:21:25.217" endtime="20230626 09:21:26.393"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">chat</stat>
+<stat pass="0" fail="1" skip="0">chien</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Chatgpt Test Cases">Chatgpt Test Cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
