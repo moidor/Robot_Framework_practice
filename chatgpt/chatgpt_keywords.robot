@@ -32,10 +32,10 @@ Ask another question related to the previous conversation
     ...    user_content=${new_question}
     Log    ${response}
     Should Be String    ${response}
-    [Return]    ${response}
+    [Return]    \n${response}
     
 Copy of the conversation in a text file
-    [Documentation]    The first and second answers' content from ChatGPT is inserted in a text file in a new directory
+    [Documentation]    The content of the first and second answers from ChatGPT is inserted in a text file in a new directory
     [Tags]    file    copy
     [Arguments]    ${conversation}
     ${path_new_directory}    Set Variable    Robot_Framework_practice-main/chatgpt_answers

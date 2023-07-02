@@ -5,8 +5,8 @@ Library    OperatingSystem
 Library    RPA.FileSystem
 
 *** Variables ***
-${path of my file}    Robot_Framework_practice-main/operatingsystem/mon_fichier.txt
-${path of new directory}    Robot_Framework_practice-main/operatingsystem/created_directory
+${path of my file}    operatingsystem\\mon_fichier.txt
+${path of new directory}    operatingsystem\\created_directory
 
 *** Test Cases ***
 Append content to a text file

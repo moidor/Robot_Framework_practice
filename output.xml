@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20230702 12:58:30.177" rpa="false" schemaversion="3">
+<suite id="s1" name="Chatgpt Test Cases" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\chatgpt\chatgpt_test_cases.robot">
+<test id="s1-t1" name="Generate an image with a template" line="58">
+<kw name="Make sure that the API key is filled" library="api_key" type="SETUP">
+<tag>api_key</tag>
+<tag>filled_data</tag>
+<tag>string_variable</tag>
+<doc>We make sure that the API key is filled to connect to ChatGPT.</doc>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${var_api_key}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230702 12:58:30.793" level="INFO">Length is 51</msg>
+<status status="PASS" starttime="20230702 12:58:30.793" endtime="20230702 12:58:30.797"/>
+</kw>
+<kw name="Should Be String" library="String">
+<arg>${var_api_key}</arg>
+<doc>Fails if the given ``item`` is not a string.</doc>
+<status status="PASS" starttime="20230702 12:58:30.797" endtime="20230702 12:58:30.798"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>The API key is filled as a string</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230702 12:58:30.799" level="INFO">The API key is filled as a string</msg>
+<status status="PASS" starttime="20230702 12:58:30.798" endtime="20230702 12:58:30.799"/>
+</kw>
+<status status="PASS" starttime="20230702 12:58:30.792" endtime="20230702 12:58:30.800"/>
+</kw>
+<kw name="Generate an image" library="Image_chatgpt">
+<arg>Beach with tropical water and a kayak and a coconut floating on the water</arg>
+<tag>image</tag>
+<tag>image_generation</tag>
+<doc>Generation of an image based on the summarized description from the conversation</doc>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>D:\\Sauvegarde travaux Cham\\Robot_Framework\\Robot_Framework_practice\\chatgpt\\screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20230702 12:58:30.803" endtime="20230702 12:58:30.803"/>
+</kw>
+<kw name="Authorize To Openai" library="RPA.OpenAI">
+<arg>api_key=${my_api_key}</arg>
+<doc>Keyword for authorize to OpenAI with your API key obtained from your account.</doc>
+<status status="PASS" starttime="20230702 12:58:30.804" endtime="20230702 12:58:30.805"/>
+</kw>
+<kw name="Image Create" library="RPA.OpenAI">
+<var>${images}</var>
+<arg>${image_description}</arg>
+<arg>size=512x512</arg>
+<arg>num_images=2</arg>
+<doc>Keyword for creating one or more images using OpenAI.
+Keyword returns a list of urls for the images created.</doc>
+<msg timestamp="20230702 12:58:37.986" level="INFO">{
+  "created": 1688295517,
+  "data": [
+    {
+      "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=5K3u286cV2Yvd3dLAE%2BBDrlBuZe9sl3Ns5MDzDSz0Co%3D"
+    },
+    {
+      "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-7mLOYfKXlhKIlrXUWMefKw2V.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Io01yU0yYBuy32cdtt8YqphvkG5oevCiaJB%2Bf4JBIY8%3D"
+    }
+  ]
+}</msg>
+<msg timestamp="20230702 12:58:37.987" level="INFO">{
+  "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=5K3u286cV2Yvd3dLAE%2BBDrlBuZe9sl3Ns5MDzDSz0Co%3D"
+}</msg>
+<msg timestamp="20230702 12:58:37.987" level="INFO">{
+  "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-7mLOYfKXlhKIlrXUWMefKw2V.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Io01yU0yYBuy32cdtt8YqphvkG5oevCiaJB%2Bf4JBIY8%3D"
+}</msg>
+<msg timestamp="20230702 12:58:37.988" level="INFO">${images} = ['https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A5...</msg>
+<status status="PASS" starttime="20230702 12:58:30.805" endtime="20230702 12:58:37.988"/>
+</kw>
+<for flavor="IN">
+<var>${url}</var>
+<value>@{images}</value>
+<iter>
+<var name="${url}">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230702 12:58:37.989" level="INFO">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=5K3u286cV2Yvd3dLAE%2BBDrlBuZe9sl3Ns5MDzDSz0Co%3D</msg>
+<status status="PASS" starttime="20230702 12:58:37.988" endtime="20230702 12:58:37.989"/>
+</kw>
+<kw name="Open pictures in browser" library="open_pictures_in_webbrowser">
+<arg>${url}</arg>
+<tag>browser</tag>
+<tag>webdriver</tag>
+<doc>Call of the browser driver so that to open the url in a maximized window</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230702 12:58:37.990" level="INFO">Opening browser 'Chrome' to base url 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-R3gdZYbZ1J0Gq57YOfcMJxBX.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=5K3u286cV2Yvd3dLAE%2BBDrlBuZe9sl3Ns5MDzDSz0Co%3D'.</msg>
+<status status="PASS" starttime="20230702 12:58:37.989" endtime="20230702 12:58:41.687"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230702 12:58:41.688" endtime="20230702 12:58:41.814"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<arg>CURRENT</arg>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20230702 12:58:41.848" level="INFO">Altogether 1 item.
+1: img-R3gdZYbZ1J0Gq57YOfcMJxBX.png (512×512)</msg>
+<status status="PASS" starttime="20230702 12:58:41.814" endtime="20230702 12:58:41.848"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opened picture in the browser at this url : ${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230702 12:58:41.848" endtime="20230702 12:58:41.850"/>
+</kw>
+<status status="PASS" starttime="20230702 12:58:37.989" endtime="20230702 12:58:41.850"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20230702 12:58:41.964" level="INFO" html="true">&lt;a href="screenshot_1.jpg"&gt;&lt;img src="screenshot_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230702 12:58:41.851" endtime="20230702 12:58:41.964"/>
+</kw>
+<status status="PASS" starttime="20230702 12:58:37.988" endtime="20230702 12:58:41.965"/>
+</iter>
+<iter>
+<var name="${url}">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-7mLOYfKXlhKIlrXUWMefKw2V.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230702 12:58:41.966" level="INFO">https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-7mLOYfKXlhKIlrXUWMefKw2V.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Io01yU0yYBuy32cdtt8YqphvkG5oevCiaJB%2Bf4JBIY8%3D</msg>
+<status status="PASS" starttime="20230702 12:58:41.965" endtime="20230702 12:58:41.966"/>
+</kw>
+<kw name="Open pictures in browser" library="open_pictures_in_webbrowser">
+<arg>${url}</arg>
+<tag>browser</tag>
+<tag>webdriver</tag>
+<doc>Call of the browser driver so that to open the url in a maximized window</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230702 12:58:41.967" level="INFO">Opening browser 'Chrome' to base url 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-HIBHeVFvUjXkisMsEj5vJVk5/user-5XHnQtItsPdDQpuirx3DNhAU/img-7mLOYfKXlhKIlrXUWMefKw2V.png?st=2023-07-02T09%3A58%3A37Z&amp;se=2023-07-02T11%3A58%3A37Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2023-07-01T20%3A13%3A47Z&amp;ske=2023-07-02T20%3A13%3A47Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=Io01yU0yYBuy32cdtt8YqphvkG5oevCiaJB%2Bf4JBIY8%3D'.</msg>
+<status status="PASS" starttime="20230702 12:58:41.967" endtime="20230702 12:58:46.925"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230702 12:58:46.927" endtime="20230702 12:58:47.049"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<arg>CURRENT</arg>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20230702 12:58:47.082" level="INFO">Altogether 1 item.
+1: img-7mLOYfKXlhKIlrXUWMefKw2V.png (512×512)</msg>
+<status status="PASS" starttime="20230702 12:58:47.050" endtime="20230702 12:58:47.083"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opened picture in the browser at this url : ${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230702 12:58:47.083" endtime="20230702 12:58:47.084"/>
+</kw>
+<status status="PASS" starttime="20230702 12:58:41.966" endtime="20230702 12:58:47.085"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20230702 12:58:47.178" level="INFO" html="true">&lt;a href="screenshot_2.jpg"&gt;&lt;img src="screenshot_2.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230702 12:58:47.085" endtime="20230702 12:58:47.178"/>
+</kw>
+<status status="PASS" starttime="20230702 12:58:41.965" endtime="20230702 12:58:47.178"/>
+</iter>
+<status status="PASS" starttime="20230702 12:58:37.988" endtime="20230702 12:58:47.178"/>
+</for>
+<status status="PASS" starttime="20230702 12:58:30.802" endtime="20230702 12:58:47.179"/>
+</kw>
+<doc>Using the "template" keyword, only the argument is required</doc>
+<tag>image</tag>
+<tag>template</tag>
+<status status="PASS" starttime="20230702 12:58:30.790" endtime="20230702 12:58:47.179"/>
+</test>
+<doc>To execute a test case using a tag, write this command in the terminal :robot -d results -i Smoke Tests/Tags.robot
+For further information: https://testersdock.com/robot-framework-tags/</doc>
+<status status="PASS" starttime="20230702 12:58:30.188" endtime="20230702 12:58:47.181"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">image</stat>
+<stat pass="1" fail="0" skip="0">template</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Chatgpt Test Cases">Chatgpt Test Cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
