@@ -68,10 +68,11 @@ Generate an image with a template
 
 Test temporaire
     [Tags]    chat
-    ${result}    Launch tag test - selection
+    ${result}    Launch tag test - tag name and path file    fetch    chatgpt\\chatgpt_test_cases.robot
     Log    ${result}
 
 Example Test Case
+    [Tags]    fetch
     ${input_string}    Set Variable    Hello, World!
     ${left_part}    Fetch From Right    ${input_string}    ,
     Log    Left part: ${left_part}

@@ -11,8 +11,8 @@ class python_tag_class:
     #     self.selLib = BuiltIn().get_library_instance("smoke.py")
 
     @keyword
-    def launch_py_tags_test(self, tag_name):
-        command = f'robot -d results -i {tag_name} process\process_practice.robot'
+    def launch_py_tags_test(self, tag_name, path_tests_file):
+        command = f'robot -d results -i {tag_name} {path_tests_file}'
         process = subprocess.Popen(command, shell=True)
         process.communicate()
         return process.returncode
