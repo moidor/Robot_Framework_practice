@@ -12,8 +12,8 @@ Library             Dialogs
 Resource            chatgpt_keywords.robot
 Resource            Image_chatgpt.robot
 Resource            main_keywords.robot
-# Resource            ..\\process\\process_practice.robot
-Resource            d:\\Sauvegarde travaux Cham\\Robot_Framework\\Robot_Framework_practice\\process\\process_practice.robot
+Resource            ..\\process\\process_practice.robot
+# Resource            d:\\Sauvegarde travaux Cham\\Robot_Framework\\Robot_Framework_practice\\process\\process_practice.robot
 
 Test Setup          Make sure that the API key is filled
 
@@ -67,9 +67,12 @@ Generate an image with a template
     Beach with tropical water and a kayak and a coconut floating on the water
 
 Test temporaire
-    [Tags]    chat
-    ${result}    Launch tag test - tag name and path file    fetch    chatgpt\\chatgpt_test_cases.robot
+    [Tags]    temporaire
+    &{all libs} =	Get library instance	all=True
+    # ${result}    Launch tag test - tag name and path file    smoke    chatgpt\\chatgpt_test_cases.robot    fetch
+    ${result}    Launch tag test - command line    -i Sanity -i fetch -i smoke chatgpt\\chatgpt_test_cases.robot
     Log    ${result}
+    Log    ${all libs}
 
 Example Test Case
     [Tags]    fetch
@@ -77,7 +80,27 @@ Example Test Case
     ${left_part}    Fetch From Right    ${input_string}    ,
     Log    Left part: ${left_part}
     Log To Console    Left part: ${left_part}
-    Take Screenshot
+    # Take Screenshot
+
+Test Case 1
+    [tags]  Smoke
+    Log To Console  This is test case 1
+
+Test Case 2
+    [tags]  Regression
+    Log To Console  This is test case 2
+
+Test Case 3
+    [tags]  Regression
+    Log To Console  This is test case 3
+
+Test Case 4
+    [tags]  Smoke
+    Log To Console  This is test case 4
+
+Test Case 5
+    [tags]  Sanity
+    Log To Console  This is test case 5
 
 # *** Keywords ***
 # Launch tag test - selection_2

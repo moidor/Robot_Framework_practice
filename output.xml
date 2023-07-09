@@ -1,87 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1 (Python 3.10.5 on win32)" generated="20230708 16:36:14.219" rpa="false" schemaversion="4">
-<suite id="s1" name="Chatgpt Test Cases" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\chatgpt\chatgpt_test_cases.robot">
-<test id="s1-t1" name="Test temporaire" line="69">
-<kw name="Make sure that the API key is filled" library="api_key" type="SETUP">
-<tag>api_key</tag>
-<tag>filled_data</tag>
-<tag>string_variable</tag>
-<doc>We make sure that the API key is filled to connect to ChatGPT.</doc>
-<kw name="Should Not Be Empty" library="BuiltIn">
-<arg>${var_api_key}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230708 16:36:14.728" level="INFO">Length is 51</msg>
-<status status="PASS" starttime="20230708 16:36:14.728" endtime="20230708 16:36:14.731"/>
+<robot generator="Robot 6.1 (Python 3.10.5 on win32)" generated="20230709 17:30:41.772" rpa="false" schemaversion="4">
+<suite id="s1" name="Archives And Documents" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\documents\archives_and_documents.robot">
+<test id="s1-t1" name="PDF File" line="17">
+<kw name="Open and zip a PDF file">
+<arg>documents\\pdf_origine.zip</arg>
+<arg>d:\\Sauvegarde travaux Cham\\Robot_Framework\\Robot_Framework_practice\\documents${/}extracted_zip_archive</arg>
+<kw name="Extract Archive" library="RPA.Archive">
+<arg>${file_path}</arg>
+<arg>${output_path}</arg>
+<doc>Extract files from archive into local directory</doc>
+<status status="PASS" starttime="20230709 17:30:42.169" endtime="20230709 17:30:42.175"/>
 </kw>
-<kw name="Should Be String" library="String">
-<arg>${var_api_key}</arg>
-<doc>Fails if the given ``item`` is not a string.</doc>
-<status status="PASS" starttime="20230708 16:36:14.732" endtime="20230708 16:36:14.732"/>
+<kw name="Open Pdf" library="RPA.PDF">
+<var>${opened_pdf_file}</var>
+<arg>${extracted_pdf}</arg>
+<doc>Open a PDF document for reading.</doc>
+<msg timestamp="20230709 17:30:42.185" level="INFO">${opened_pdf_file} = None</msg>
+<status status="PASS" starttime="20230709 17:30:42.176" endtime="20230709 17:30:42.188"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>The API key is filled as a string</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230708 16:36:14.733" level="INFO">The API key is filled as a string</msg>
-<status status="PASS" starttime="20230708 16:36:14.732" endtime="20230708 16:36:14.733"/>
-</kw>
-<status status="PASS" starttime="20230708 16:36:14.728" endtime="20230708 16:36:14.733"/>
-</kw>
-<kw name="Launch tag test - tag name and path file" library="process_practice">
-<var>${result}</var>
-<arg>fetch</arg>
-<arg>chatgpt\\chatgpt_test_cases.robot</arg>
-<kw name="Launch Py Tags Test" library="python_tag_class">
-<var>${result}</var>
-<arg>${tag_name}</arg>
-<arg>${path_tests_file}</arg>
-<msg timestamp="20230708 16:36:15.924" level="INFO">${result} = 0</msg>
-<status status="PASS" starttime="20230708 16:36:14.734" endtime="20230708 16:36:15.926"/>
-</kw>
-<kw name="Should Be Equal As Integers" library="BuiltIn">
-<arg>${result}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20230708 16:36:15.927" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230708 16:36:15.926" endtime="20230708 16:36:15.927"/>
+<kw name="Get Text From Pdf" library="RPA.PDF">
+<var>${text_pdf_file}</var>
+<arg>${opened_pdf_file}</arg>
+<doc>Get text from set of pages in source PDF document.</doc>
+<msg timestamp="20230709 17:30:42.204" level="INFO">${text_pdf_file} = {1: '# Commentaire 1\nPremière ligne\nDeuxième ligne# Commentaire 2\n Troisième ligne à supprimer car elle commence par un espace\n# Commentaire 3\nBonjour\nAu revoir\nSalut'}</msg>
+<status status="PASS" starttime="20230709 17:30:42.189" endtime="20230709 17:30:42.205"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>The return code is ${result}</arg>
+<arg>${text_pdf_file}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230708 16:36:15.927" level="INFO">The return code is 0</msg>
-<status status="PASS" starttime="20230708 16:36:15.927" endtime="20230708 16:36:15.927"/>
+<msg timestamp="20230709 17:30:42.205" level="INFO">{1: '# Commentaire 1\nPremière ligne\nDeuxième ligne# Commentaire 2\n Troisième ligne à supprimer car elle commence par un espace\n# Commentaire 3\nBonjour\nAu revoir\nSalut'}</msg>
+<status status="PASS" starttime="20230709 17:30:42.205" endtime="20230709 17:30:42.205"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>The return code is ${result}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230708 16:36:15.927" endtime="20230708 16:36:15.928"/>
+<status status="PASS" starttime="20230709 17:30:42.168" endtime="20230709 17:30:42.205"/>
 </kw>
-<msg timestamp="20230708 16:36:15.928" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20230708 16:36:14.734" endtime="20230708 16:36:15.930"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${result}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230708 16:36:15.933" level="INFO">None</msg>
-<status status="PASS" starttime="20230708 16:36:15.932" endtime="20230708 16:36:15.934"/>
-</kw>
-<tag>chat</tag>
-<status status="PASS" starttime="20230708 16:36:14.727" endtime="20230708 16:36:15.934"/>
+<status status="PASS" starttime="20230709 17:30:42.167" endtime="20230709 17:30:42.206"/>
 </test>
-<doc>To execute a test case using a tag, write this command in the terminal :robot -d results -i Smoke Tests/Tags.robot
-For further information: https://testersdock.com/robot-framework-tags/</doc>
-<status status="PASS" starttime="20230708 16:36:14.228" endtime="20230708 16:36:15.937"/>
+<doc>Testing archive and PDF files like getting the PDF text and insert it in a new zipped text file</doc>
+<status status="PASS" starttime="20230709 17:30:41.783" endtime="20230709 17:30:42.209"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">chat</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Chatgpt Test Cases">Chatgpt Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Archives And Documents">Archives And Documents</stat>
 </suite>
 </statistics>
 <errors>

@@ -42,7 +42,7 @@ Copy of the conversation in a text file
     ${path_answers_file}    Set Variable    Robot_Framework_practice-main/chatgpt/chatgpt_answers/answers.txt
     OperatingSystem.Create Directory    ${path_new_directory}
     OperatingSystem.Create File    ${path_answers_file}
-    # Créer un nouveau fichier à chaque fois pour ne pas écraser le précédent ???
+    # (Créer un nouveau fichier à chaque fois pour ne pas écraser le précédent ???)
     OperatingSystem.Append To File    ${path_answers_file}    ${conversation}
 
 Open file with conversation

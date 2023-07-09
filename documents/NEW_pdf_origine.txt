@@ -1,0 +1,1 @@
+{1: '# Commentaire 1\nPremière ligne\nDeuxième ligne# Commentaire 2\n Troisième ligne à supprimer car elle commence par un espace\n# Commentaire 3\nBonjour\nAu revoir\nSalut'}
