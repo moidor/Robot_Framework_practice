@@ -1,0 +1,8 @@
+// Commentaire...
+
+city1;Nantes;
+city2;Tokyo;
+country1;Japan;
+country2;Australia;
+
+// Commentaire de fin

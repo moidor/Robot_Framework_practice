@@ -70,7 +70,8 @@ Test temporaire
     [Tags]    temporaire
     &{all libs} =	Get library instance	all=True
     # ${result}    Launch tag test - tag name and path file    smoke    chatgpt\\chatgpt_test_cases.robot    fetch
-    ${result}    Launch tag test - command line    -i Sanity -i fetch -i smoke chatgpt\\chatgpt_test_cases.robot
+    ${result}    Launch tag test with a command line    
+    ...    robot -d results -i Sanity -i fetch -i smoke chatgpt\\chatgpt_test_cases.robot
     Log    ${result}
     Log    ${all libs}
 

@@ -11,12 +11,21 @@ ${path_tests_file}
 ${tag_name}
 
 *** Keywords ***
-Launch tag test - command line
+Launch tag test in Python - command line
     [Documentation]    Indicate the command line part after "robot -d results" 
-    ...    to execute tag tests in a more flexible way than the other keyword "Launch tag test - tag name and path file"
+    ...    to execute tag tests in a more flexible way than the other keyword "Launch tag test - tag name and path file".
+    ...    The keyword already contains the first part of the command line : "robot -d results"; just add the rest.
     [Arguments]    ${command_line}
     ${result}    Launch Py Tags Command Line    ${command_line}
     Should Be Equal As Integers    ${result}    0
+    Log    The return code is ${result}
+    Log To Console    The return code is ${result}
+
+Launch tag test with a command line
+    [Documentation]    Execution of a command line through the "Run" keyword in the OperatingSystem library
+    [Arguments]    ${command_line}
+    ${result}    Run    ${command_line}
+    # Should Be Equal As Integers    ${result}    0
     Log    The return code is ${result}
     Log To Console    The return code is ${result}
 
