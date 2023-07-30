@@ -1,114 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1 (Python 3.10.5 on win32)" generated="20230714 11:09:39.057" rpa="false" schemaversion="4">
-<suite id="s1" name="Chatgpt Test Cases" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\chatgpt\chatgpt_test_cases.robot">
-<test id="s1-t1" name="Test temporaire" line="69">
-<kw name="Make sure that the API key is filled" library="api_key" type="SETUP">
-<tag>api_key</tag>
-<tag>filled_data</tag>
-<tag>string_variable</tag>
-<doc>We make sure that the API key is filled to connect to ChatGPT.</doc>
-<kw name="Should Not Be Empty" library="BuiltIn">
-<arg>${var_api_key}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230714 11:09:39.715" level="INFO">Length is 51</msg>
-<status status="PASS" starttime="20230714 11:09:39.715" endtime="20230714 11:09:39.719"/>
+<robot generator="Robot 6.1 (Python 3.10.11 on win32)" generated="20230730 12:33:38.745" rpa="false" schemaversion="4">
+<suite id="s1" name="Database Lib" source="d:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\database\database_lib.robot">
+<kw name="Connect to SQLiteDB" type="SETUP">
+<tag>db</tag>
+<tag>smoke</tag>
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<arg>sqlite3</arg>
+<arg>database="${DB_NAME}", isolation_level=None</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using the map string `db_custom_param_string`.</doc>
+<msg timestamp="20230730 12:33:39.503" level="INFO">Executing : Connect To Database Using Custom Params : sqlite3.connect(db_api_2.connect(database="D:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\database\my_database.db", isolation_level=None)) </msg>
+<status status="PASS" starttime="20230730 12:33:39.497" endtime="20230730 12:33:39.510"/>
 </kw>
-<kw name="Should Be String" library="String">
-<arg>${var_api_key}</arg>
-<doc>Fails if the given ``item`` is not a string.</doc>
-<status status="PASS" starttime="20230714 11:09:39.719" endtime="20230714 11:09:39.720"/>
+<status status="PASS" starttime="20230730 12:33:39.496" endtime="20230730 12:33:39.511"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>The API key is filled as a string</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230714 11:09:39.720" level="INFO">The API key is filled as a string</msg>
-<status status="PASS" starttime="20230714 11:09:39.720" endtime="20230714 11:09:39.720"/>
+<test id="s1-t1" name="Insert a IPv4 column with data on each row in the table" line="35">
+<kw name="Query" library="DatabaseLibrary">
+<var>@{rowid_list}</var>
+<arg>SELECT rowid FROM people</arg>
+<arg>return=list</arg>
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<msg timestamp="20230730 12:33:39.512" level="INFO">Executing : Query  |  SELECT rowid FROM people </msg>
+<msg timestamp="20230730 12:33:39.513" level="INFO">@{rowid_list} = [ (1,) | (2,) | (3,) | (4,) | (5,) | (6,) ]</msg>
+<status status="PASS" starttime="20230730 12:33:39.512" endtime="20230730 12:33:39.513"/>
 </kw>
-<status status="PASS" starttime="20230714 11:09:39.715" endtime="20230714 11:09:39.720"/>
-</kw>
-<kw name="Get Library Instance" library="BuiltIn">
-<var>&amp;{all libs}</var>
-<arg>all=True</arg>
-<doc>Returns the currently active instance of the specified library.</doc>
-<msg timestamp="20230714 11:09:39.723" level="INFO">&amp;{all libs} = { BuiltIn=&lt;robot.libraries.BuiltIn.BuiltIn object at 0x000001CC786E0610&gt; | Reserved=&lt;robot.libraries.Reserved.Reserved object at 0x000001CC787376A0&gt; | Easter=&lt;module 'robot.libraries.Easter' from 'C:\...</msg>
-<status status="PASS" starttime="20230714 11:09:39.721" endtime="20230714 11:09:39.725"/>
-</kw>
-<kw name="Launch tag test with a command line" library="process_practice">
-<var>${result}</var>
-<arg>robot -d results -i Sanity -i fetch -i smoke chatgpt\\chatgpt_test_cases.robot</arg>
-<doc>Execution of a command line through the "Run" keyword in the OperatingSystem library</doc>
-<kw name="Run" library="OperatingSystem">
-<var>${result}</var>
-<arg>${command_line}</arg>
-<doc>Runs the given command in the system and returns the output.</doc>
-<msg timestamp="20230714 11:09:39.745" level="INFO">Running command 'robot -d results -i Sanity -i fetch -i smoke chatgpt\chatgpt_test_cases.robot 2&gt;&amp;1'.</msg>
-<msg timestamp="20230714 11:09:41.695" level="INFO">${result} = ==============================================================================
-Chatgpt Test Cases :: To execute a test case using a tag, write this comman...
-==========================================...</msg>
-<status status="PASS" starttime="20230714 11:09:39.727" endtime="20230714 11:09:41.695"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>The return code is ${result}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230714 11:09:41.696" level="INFO">The return code is ==============================================================================
-Chatgpt Test Cases :: To execute a test case using a tag, write this comman...
-==============================================================================
-Example Test Case                                                     Left part:  World!
-| PASS |
-------------------------------------------------------------------------------
-Test Case 1                                                           This is test case 1
-| PASS |
-------------------------------------------------------------------------------
-Test Case 4                                                           This is test case 4
-| PASS |
-------------------------------------------------------------------------------
-Test Case 5                                                           This is test case 5
-| PASS |
-------------------------------------------------------------------------------
-Chatgpt Test Cases :: To execute a test case using a tag, write th... | PASS |
-4 tests, 4 passed, 0 failed
-==============================================================================
-Output:  D:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\results\output.xml
-Log:     D:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\results\log.html
-Report:  D:\Sauvegarde travaux Cham\Robot_Framework\Robot_Framework_practice\results\report.html</msg>
-<status status="PASS" starttime="20230714 11:09:41.696" endtime="20230714 11:09:41.696"/>
+<for flavor="IN">
+<var>${iterated_row_id}</var>
+<value>@{rowid_list}</value>
+<iter>
+<var name="${iterated_row_id}">(1,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:39.526" level="INFO">${ipv4} = 218.98.26.134</msg>
+<status status="PASS" starttime="20230730 12:33:39.515" endtime="20230730 12:33:39.526"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>The return code is ${result}</arg>
+<arg>${ipv4}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230714 11:09:41.696" endtime="20230714 11:09:41.701"/>
+<status status="PASS" starttime="20230730 12:33:39.527" endtime="20230730 12:33:39.527"/>
 </kw>
-<msg timestamp="20230714 11:09:41.701" level="INFO">${result} = None</msg>
-<status status="PASS" starttime="20230714 11:09:39.726" endtime="20230714 11:09:41.701"/>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:39.528" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '218.98.26.134' WHERE rowid=1; </msg>
+<msg timestamp="20230730 12:33:39.653" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:39.528" endtime="20230730 12:33:39.653"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${result}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230714 11:09:41.703" level="INFO">None</msg>
-<status status="PASS" starttime="20230714 11:09:41.702" endtime="20230714 11:09:41.703"/>
+<status status="PASS" starttime="20230730 12:33:39.514" endtime="20230730 12:33:39.653"/>
+</iter>
+<iter>
+<var name="${iterated_row_id}">(2,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:39.654" level="INFO">${ipv4} = 70.77.130.72</msg>
+<status status="PASS" starttime="20230730 12:33:39.653" endtime="20230730 12:33:39.654"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${all libs}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230714 11:09:41.705" level="INFO">{'BuiltIn': &lt;robot.libraries.BuiltIn.BuiltIn object at 0x000001CC786E0610&gt;, 'Reserved': &lt;robot.libraries.Reserved.Reserved object at 0x000001CC787376A0&gt;, 'Easter': &lt;module 'robot.libraries.Easter' from 'C:\\Users\\Cham\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\robot\\libraries\\Easter.py'&gt;, 'RPA.OpenAI': &lt;RPA.OpenAI.OpenAI object at 0x000001CC78760AC0&gt;, 'String': &lt;robot.libraries.String.String object at 0x000001CC7F3197E0&gt;, 'OperatingSystem': &lt;robot.libraries.OperatingSystem.OperatingSystem object at 0x000001CC7F31B790&gt;, 'Screenshot': &lt;robot.libraries.Screenshot.Screenshot object at 0x000001CC7F871540&gt;, 'python_tag_class': &lt;python_tag_class.python_tag_class object at 0x000001CC7F871900&gt;, 'Dialogs': &lt;module 'robot.libraries.Dialogs' from 'C:\\Users\\Cham\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\robot\\libraries\\Dialogs.py'&gt;, 'Collections': &lt;robot.libraries.Collections.Collections object at 0x000001CC7F570520&gt;, 'SeleniumLibrary': &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001CC7F573820&gt;}</msg>
-<status status="PASS" starttime="20230714 11:09:41.704" endtime="20230714 11:09:41.707"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ipv4}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230730 12:33:39.654" endtime="20230730 12:33:39.655"/>
 </kw>
-<tag>temporaire</tag>
-<status status="PASS" starttime="20230714 11:09:39.714" endtime="20230714 11:09:41.710"/>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:39.656" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '70.77.130.72' WHERE rowid=2; </msg>
+<msg timestamp="20230730 12:33:39.751" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:39.655" endtime="20230730 12:33:39.752"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:39.653" endtime="20230730 12:33:39.752"/>
+</iter>
+<iter>
+<var name="${iterated_row_id}">(3,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:39.753" level="INFO">${ipv4} = 61.109.216.124</msg>
+<status status="PASS" starttime="20230730 12:33:39.752" endtime="20230730 12:33:39.753"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ipv4}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230730 12:33:39.753" endtime="20230730 12:33:39.754"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:39.755" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '61.109.216.124' WHERE rowid=3; </msg>
+<msg timestamp="20230730 12:33:39.861" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:39.754" endtime="20230730 12:33:39.861"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:39.752" endtime="20230730 12:33:39.861"/>
+</iter>
+<iter>
+<var name="${iterated_row_id}">(4,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:39.862" level="INFO">${ipv4} = 158.29.130.135</msg>
+<status status="PASS" starttime="20230730 12:33:39.861" endtime="20230730 12:33:39.862"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ipv4}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230730 12:33:39.862" endtime="20230730 12:33:39.863"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:39.866" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '158.29.130.135' WHERE rowid=4; </msg>
+<msg timestamp="20230730 12:33:39.985" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:39.865" endtime="20230730 12:33:39.985"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:39.861" endtime="20230730 12:33:39.985"/>
+</iter>
+<iter>
+<var name="${iterated_row_id}">(5,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:39.986" level="INFO">${ipv4} = 199.185.254.132</msg>
+<status status="PASS" starttime="20230730 12:33:39.986" endtime="20230730 12:33:39.986"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ipv4}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230730 12:33:39.987" endtime="20230730 12:33:39.988"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:39.989" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '199.185.254.132' WHERE rowid=5; </msg>
+<msg timestamp="20230730 12:33:40.086" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:39.988" endtime="20230730 12:33:40.086"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:39.986" endtime="20230730 12:33:40.086"/>
+</iter>
+<iter>
+<var name="${iterated_row_id}">(6,)</var>
+<kw name="Ipv 4" library="FakerLibrary">
+<var>${ipv4}</var>
+<doc>Returns a random IPv4 address or network with a valid CIDR.</doc>
+<msg timestamp="20230730 12:33:40.087" level="INFO">${ipv4} = 53.9.122.183</msg>
+<status status="PASS" starttime="20230730 12:33:40.087" endtime="20230730 12:33:40.087"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ipv4}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230730 12:33:40.087" endtime="20230730 12:33:40.089"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${output}</var>
+<arg>UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230730 12:33:40.090" level="INFO">Executing : Execute SQL String  |  UPDATE people SET ipv4 = '53.9.122.183' WHERE rowid=6; </msg>
+<msg timestamp="20230730 12:33:40.194" level="INFO">${output} = None</msg>
+<status status="PASS" starttime="20230730 12:33:40.089" endtime="20230730 12:33:40.194"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:40.087" endtime="20230730 12:33:40.194"/>
+</iter>
+<status status="PASS" starttime="20230730 12:33:39.514" endtime="20230730 12:33:40.194"/>
+</for>
+<status status="PASS" starttime="20230730 12:33:39.511" endtime="20230730 12:33:40.195"/>
 </test>
-<doc>To execute a test case using a tag, write this command in the terminal :robot -d results -i Smoke Tests/Tags.robot
-For further information: https://testersdock.com/robot-framework-tags/</doc>
-<status status="PASS" starttime="20230714 11:09:39.067" endtime="20230714 11:09:41.713"/>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20230730 12:33:40.198" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20230730 12:33:40.198" endtime="20230730 12:33:40.199"/>
+</kw>
+<status status="PASS" starttime="20230730 12:33:38.777" endtime="20230730 12:33:40.199"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">temporaire</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Chatgpt Test Cases">Chatgpt Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Database Lib">Database Lib</stat>
 </suite>
 </statistics>
 <errors>

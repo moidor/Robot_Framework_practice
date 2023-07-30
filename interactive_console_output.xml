@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1 (Python 3.10.5 on win32)" generated="20230708 16:30:33.464" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1 (Python 3.10.11 on win32)" generated="20230730 10:42:40.105" rpa="false" schemaversion="4">
 <suite id="s1" name="Robot Interactive Console" source="c:\Users\Cham\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<status status="PASS" starttime="20230708 16:30:33.487" endtime="20230708 16:30:34.908"/>
+<kw name="Connect to SQLiteDB">
+<msg timestamp="20230730 10:42:41.025" level="FAIL">No keyword with name 'Connect to SQLiteDB' found.</msg>
+<status status="FAIL" starttime="20230730 10:42:41.024" endtime="20230730 10:42:41.025"/>
 </kw>
-<status status="PASS" starttime="20230708 16:30:33.487" endtime="20230708 16:30:34.908"/>
+<kw name="Execute SQL Script">
+<var>${output}</var>
+<arg>./${DB_NAME}_insertData.sql</arg>
+<status status="NOT RUN" starttime="20230730 10:42:41.026" endtime="20230730 10:42:41.026"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${output}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230730 10:42:41.027" endtime="20230730 10:42:41.027"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${output}</arg>
+<arg>None</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20230730 10:42:41.027" endtime="20230730 10:42:41.027"/>
+</kw>
+<status status="PASS" starttime="20230730 10:42:40.150" endtime="20230730 10:42:41.765"/>
+</kw>
+<status status="PASS" starttime="20230730 10:42:40.149" endtime="20230730 10:42:41.765"/>
 </test>
-<status status="PASS" starttime="20230708 16:30:33.468" endtime="20230708 16:30:34.910"/>
+<status status="PASS" starttime="20230730 10:42:40.108" endtime="20230730 10:42:41.766"/>
 </suite>
 <statistics>
 <total>

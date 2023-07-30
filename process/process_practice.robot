@@ -22,7 +22,7 @@ Launch tag test in Python - command line
     Log To Console    The return code is ${result}
 
 Launch tag test with a command line
-    [Documentation]    Execution of a command line through the "Run" keyword in the OperatingSystem library
+    [Documentation]    Execution of a command line with the "Run" keyword in the OperatingSystem library
     [Arguments]    ${command_line}
     ${result}    Run    ${command_line}
     # Should Be Equal As Integers    ${result}    0
