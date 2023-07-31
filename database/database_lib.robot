@@ -32,7 +32,7 @@ Insert data from Faker library in the "people" table
     Log    ${output}
     Should Be Equal As Strings    ${output}    None
 
-Insert a IPv4 column with data on each row in the table
+Insert an IPv4 address on each row in the table
     # A list is created from a query with the library "Database"
     @{rowid_list}    Query    SELECT rowid FROM people    return=list
     FOR    ${iterated_row_id}    IN    @{rowid_list}
