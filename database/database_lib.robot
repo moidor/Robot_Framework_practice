@@ -41,6 +41,15 @@ Insert a IPv4 column with data on each row in the table
         ${output}    Execute Sql String    UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};
     END
 
+Insert three persons generated from FakerLibrary via a "For in range" loop
+    FOR    ${counter}    IN RANGE    3
+        ${people_first_name}    FakerLibrary.First Name
+        ${people_last_name}    FakerLibrary.Last Name
+        ${output} =    Execute SQL String    INSERT INTO people VALUES('${people_first_name}','${people_last_name}');
+        Log    ${output}
+        Should Be Equal As Strings    ${output}    ${None}
+    END
+
 Insert data in the "people" table via a SQL script
     [Tags]    db    smoke
     ${output} =    Execute SQL Script    ./${DB_NAME}_insertData.sql
