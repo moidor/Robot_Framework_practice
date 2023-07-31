@@ -41,6 +41,16 @@ Insert an IPv4 address on each row in the table
         ${output}    Execute Sql String    UPDATE people SET ipv4 = '${ipv4}' WHERE rowid=${iterated_row_id[0]};
     END
 
+Insert an email address on each row in the table
+    # A list is created from a query with the library "Database"
+    @{rowid_list}    DatabaseLibrary.Query    SELECT rowid FROM people    return=list
+    FOR    ${iterated_row_id}    IN    @{rowid_list}
+        ${email}    FakerLibrary.Email
+        Log To Console    Generated email: ${email}
+        # It is necessary to precise the index "0" because the id is extracted from the list as a tuple.
+        ${output}    Execute Sql String    UPDATE people SET email = '${email}' WHERE rowid=${iterated_row_id[0]};
+    END
+
 Insert three persons generated from FakerLibrary via a "For in range" loop
     FOR    ${counter}    IN RANGE    3
         ${people_first_name}    FakerLibrary.First Name
